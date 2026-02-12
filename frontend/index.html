@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Budget-Friendly Product Explain Bot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand">🔍 Budget-Friendly Product Explain Bot</div>
+    <div class="controls">
+      <select id="categorySelect">
+        <option value="general">General</option>
+        <option value="phone">Phone</option>
+        <option value="laptop">Laptop</option>
+        <option value="watch">Smartwatch</option>
+        <option value="headphones">Headphones</option>
+      </select>
+      <button id="themeToggle">🌙</button>
+    </div>
+  </div>
+
+  <main class="main">
+    <section class="panel">
+      <div class="form">
+        <input id="productInput" placeholder="Product A (e.g., Samsung S23)" />
+        <input id="compareInput" placeholder="Compare with (optional) Product B" />
+        <div class="row">
+          <input id="budgetInput" placeholder="Your budget (₹)" />
+          <button class="btn" onclick="explainProduct()">Analyze</button>
+        </div>
+      </div>
+    </section>.
+
+    <div id="loading" class="loading hidden">⏳ Analyzing...</div>
+
+    <section id="result" class="result"></section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
