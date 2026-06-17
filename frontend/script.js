@@ -1,4 +1,4 @@
-const API_URL = "http://127.0.0.1:5000/explain";
+const API_URL = "https://ai-powered-product-analysis-comparison.onrender.com";
 
 const form = document.getElementById("advisorForm");
 const loading = document.getElementById("loading");
