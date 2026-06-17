@@ -1,43 +1,216 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Budget Product Advisor</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2326d0a8'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Arial,sans-serif' font-size='34' font-weight='700' fill='%2307110e'%3EB%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <nav class="topbar" aria-label="Main navigation">
+      <a class="brand" href="#">
+        <span class="brand-mark" aria-hidden="true">B</span>
+        <span>
+          <strong>Budget Product Advisor</strong>
+          <small>AI purchase guidance</small>
+        </span>
+      </a>
+
+      <div class="controls">
+        <label class="sr-only" for="categorySelect">Product category</label>
+        <select id="categorySelect">
+          <option value="general">General</option>
+          <option value="phone">Phone</option>
+          <option value="laptop">Laptop</option>
+          <option value="watch">Smartwatch</option>
+          <option value="headphones">Headphones</option>
+        </select>
+        <button id="themeToggle" class="icon-btn" type="button" aria-label="Toggle theme" title="Toggle theme">
+          <span aria-hidden="true">Theme</span>
+        </button>
+      </div>
+    </nav>
+
+    <section class="hero" aria-labelledby="pageTitle">
+      <div class="hero-copy">
+        <p class="eyebrow">Budget-first product research</p>
+        <h1 id="pageTitle">Know if a product is worth your money before you buy.</h1>
+        <p class="hero-text">
+          Compare products, estimate price fit, review practical pros and cons, and get a clear buying verdict.
+        </p>
+      </div>
+
+      <form class="advisor-panel" id="advisorForm">
+        <div class="field">
+          <label for="productInput">Product name</label>
+          <input id="productInput" name="product" placeholder="Example: Samsung Galaxy S23" autocomplete="off" required />
+        </div>
+
+        <div class="field">
+          <label for="compareInput">Compare with</label>
+          <input id="compareInput" name="compare" placeholder="Optional: OnePlus 12R" autocomplete="off" />
+        </div>
+
+        <div class="form-grid">
+          <div class="field">
+            <label for="budgetInput">Budget in INR</label>
+            <input id="budgetInput" name="budget" inputmode="numeric" placeholder="Example: 45000" required />
+          </div>
+          <button class="btn" type="submit">Analyze Product</button>
+        </div>
+      </form>
+    </section>
+  </header>
+
+  <main class="main">
+    <div id="loading" class="loading hidden" role="status" aria-live="polite">
+      <span class="spinner" aria-hidden="true"></span>
+      <span>Analyzing product value...</span>
+    </div>
+
+    <section id="result" class="result" aria-live="polite"></section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html> -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Budget-Friendly Product Explain Bot</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Budget Product Advisor</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2326d0a8'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Arial,sans-serif' font-size='34' font-weight='700' fill='%2307110e'%3EB%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="topbar">
-    <div class="brand">🔍 Budget-Friendly Product Explain Bot</div>
-    <div class="controls">
-      <select id="categorySelect">
-        <option value="general">General</option>
-        <option value="phone">Phone</option>
-        <option value="laptop">Laptop</option>
-        <option value="watch">Smartwatch</option>
-        <option value="headphones">Headphones</option>
-      </select>
-      <button id="themeToggle">🌙</button>
-    </div>
-  </div>
 
-  <main class="main">
-    <section class="panel">
-      <div class="form">
-        <input id="productInput" placeholder="Product A (e.g., Samsung S23)" />
-        <input id="compareInput" placeholder="Compare with (optional) Product B" />
-        <div class="row">
-          <input id="budgetInput" placeholder="Your budget (₹)" />
-          <button class="btn" onclick="explainProduct()">Analyze</button>
+  <header class="app-header">
+    <nav class="topbar" aria-label="Main navigation">
+      <a class="brand" href="#">
+        <span class="brand-mark" aria-hidden="true">B</span>
+        <span>
+          <strong>Budget Product Advisor</strong>
+          <small>AI purchase guidance</small>
+        </span>
+      </a>
+      <div class="controls">
+        <label class="sr-only" for="categorySelect">Product category</label>
+        <select id="categorySelect">
+          <option value="general">General</option>
+          <option value="phone">Phone</option>
+          <option value="laptop">Laptop</option>
+          <option value="watch">Smartwatch</option>
+          <option value="headphones">Headphones</option>
+        </select>
+        <button id="themeToggle" class="icon-btn" type="button"
+                aria-label="Toggle theme" title="Toggle theme">
+          <span aria-hidden="true">Theme</span>
+        </button>
+      </div>
+    </nav>
+
+    <section class="hero" aria-labelledby="pageTitle">
+      <div class="hero-copy">
+        <p class="eyebrow">Budget-first product research</p>
+        <h1 id="pageTitle">Know if a product is worth your money before you buy.</h1>
+        <p class="hero-text">
+          Compare products, estimate price fit, review practical pros and cons,
+          and get a clear buying verdict.
+        </p>
+      </div>
+
+      <div>
+        <!-- FORM -->
+        <form class="advisor-panel" id="advisorForm" autocomplete="off">
+          <div class="field">
+            <label for="productInput">Product name</label>
+            <input id="productInput"
+                   placeholder="Example: Samsung Galaxy S23 FE" required />
+          </div>
+          <div class="field">
+            <label for="compareInput">
+              Compare with product 2
+              <span style="font-weight:400;opacity:.6;">(optional)</span>
+            </label>
+            <input id="compareInput"
+                   placeholder="Example: Nothing Phone 3a" />
+          </div>
+          <div class="field">
+            <label for="compareSecondInput">
+              Compare with product 3
+              <span style="font-weight:400;opacity:.6;">(optional)</span>
+            </label>
+            <input id="compareSecondInput"
+                   placeholder="Example: OnePlus Nord CE 4" />
+          </div>
+          <div class="form-grid">
+            <div class="field">
+              <label for="budgetInput">Budget in INR</label>
+              <input id="budgetInput" inputmode="numeric"
+                     placeholder="Example: 30000" required />
+            </div>
+            <button class="btn" type="submit">Analyze</button>
+          </div>
+        </form>
+
+        <!-- PHASE 1A: SEARCH HISTORY -->
+        <div class="history-wrap" id="historyWrap" style="display:none;">
+          <div class="history-header">
+            <span class="history-title">Recent Searches</span>
+            <button class="history-clear-btn" id="historyClearAll">Clear All</button>
+          </div>
+          <div class="history-list" id="historyList"></div>
         </div>
       </div>
-    </section>.
+    </section>
+  </header>
 
-    <div id="loading" class="loading hidden">⏳ Analyzing...</div>
+  <main class="main">
 
-    <section id="result" class="result"></section>
+    <!-- spinner fallback (hidden by default) -->
+    <div id="loading" class="loading hidden" role="status" aria-live="polite">
+      <span class="spinner" aria-hidden="true"></span>
+      <span id="loadingText">Analyzing product value...</span>
+    </div>
+
+    <!-- PHASE 1B: SKELETON LOADER -->
+    <div class="skeleton-wrap" id="skeletonWrap">
+      <div class="sk-loading-label">
+        <span class="spinner"></span>
+      </div>
+      <div class="sk-hero">
+        <div class="sk-shimmer sk-hero-img"></div>
+        <div class="sk-shimmer sk-hero-panel"></div>
+      </div>
+      <div class="sk-shimmer sk-card"></div>
+      <div class="sk-two">
+        <div class="sk-shimmer"></div>
+        <div class="sk-shimmer"></div>
+      </div>
+      <div class="sk-scores">
+        <div class="sk-shimmer"></div>
+        <div class="sk-shimmer"></div>
+        <div class="sk-shimmer"></div>
+        <div class="sk-shimmer"></div>
+        <div class="sk-shimmer"></div>
+        <div class="sk-shimmer"></div>
+      </div>
+    </div>
+
+    <section id="result" class="result" aria-live="polite">
+    </section>
   </main>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

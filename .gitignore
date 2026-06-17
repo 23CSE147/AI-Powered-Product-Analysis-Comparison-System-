@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+.env
+
+# Old files
+backend/llm_old.py
+frontend/script_old.js
+
+# Docs
+TESTING_GUIDE.sh
+CSS_FIXES.md
+IMPLEMENTATION.md
+CATEGORY_DETECTION.md
+
+# VS Code
+.vscode/
